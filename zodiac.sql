@@ -14,6 +14,7 @@ CREATE TABLE `zodiac` (
 -- Create table for Users
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
+  `is_admin` int(1) NOT NULL,
   `first_name` varchar(100) DEFAULT NULL,
   `last_name` varchar(150) NOT NULL,
   `gender` varchar(100) NOT NULL,

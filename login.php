@@ -30,11 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = mysqli_fetch_assoc($result);
         if ($row["is_admin"] == 1) {
             $_SESSION['username'] = $username;
-            header('Location: viewusers.php');
+            header('Location: testadmin.php');
             exit();
         } else {
             $_SESSION['username'] = $username;
-            header('Location: viewusers1.php');
+            header('Location: testuser.php');
             exit();
         }
     } else {
@@ -71,6 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <div class="links">
                         <a href="register.php">Signup User</a>
+                        <a href="registerAdmin.php">Signup Admin</a>
                     </div>
                     <div class="inputBox">
                         <input type="submit" value="Login">
