@@ -21,7 +21,7 @@ CREATE TABLE `users` (
   `username` varchar(150) NOT NULL,
   `birthday` varchar(100) NOT NULL,  
   `password` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Example entries for ZodiacSigns
 INSERT INTO `zodiac` (`sign_name`, `description`, `image_url`) VALUES
