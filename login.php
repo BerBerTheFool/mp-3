@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $host = 'localhost';
     $db_username = 'root';
     $db_password = '';
-    $database = 'zodiac';
+    $database = 'test';
     
     // Connect to the database
     $conn = mysqli_connect($host, $db_username, $db_password, $database);
@@ -70,8 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="password" name="password"  placeholder=" Password" required>
                     </div>
                     <div class="links">
-                        <a href="registernow.php">Signup User</a>
-                        <a href="registeradmin.php">Signup Admin</a>
+                        <a href="register.php">Signup User</a>
                     </div>
                     <div class="inputBox">
                         <input type="submit" value="Login">
