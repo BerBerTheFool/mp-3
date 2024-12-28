@@ -11,9 +11,11 @@ if (isset($_POST["submit"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
+    $birthday = $_POST["birthday"];
+    $gender = $_POST["gender"];
 
     // Insert the user into the database
-    $sql = "INSERT INTO users (username, first_name, last_name, password, email) VALUES ('$username', '$firstname','$lastname','$password', '$email')";
+    $sql = "INSERT INTO users (username, first_name, last_name, password, email, birthday, gender) VALUES ('$username', '$firstname','$lastname','$password', '$email', '$birthday', '$gender')";
     if (mysqli_query($conn, $sql)) {
 
    echo "<b>Registration successful!<b>";
@@ -62,6 +64,18 @@ mysqli_close($conn);
                     <label>Lastname:</label>
                     <input type="text" name="lastname" required>
                 </div>
+
+                <div class="form-element">
+                    <label>Gender:</label>
+                    <input type="radio" id="F" name="gender" value="Female"> Female
+                    <input type="radio" id="M" name="gender" value="Male"> Male
+                </div>
+
+                <div class="form-element">
+                    <label>Birthday:</label>
+                    <input type="date" id="birthday" name="birthday"> 
+                </div>
+                
 
                 <div class="form-element">
                     <label>Password:</label>
