@@ -67,17 +67,24 @@ mysqli_close($conn);
                 <div class="form-element">
                     <input type="text" placeholder="Last Name"name="lastname" required>
                 </div>
+                    
 
-                <div class="form-element">
-                    <label>Gender:</label>
-                    <input type="radio" id="F" name="gender" value="Female"> Female
-                    <input type="radio" id="M" name="gender" value="Male"> Male
+                <div class="radio">
+                <h3> Gender </h3> 
+
+                <input type="radio" id="fem" name="gender" value="Female" checked>
+                    <label for="fem">Female</label>
+
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="undisclosed" name="gender" value="Undisclosed">
+                    <label for="undisclosed">Undisclosed</label> 
                 </div>
 
                 <div class="form-element">
                     <input type="date" id="birthday" name="birthday"> 
                 </div>
-                
 
                 <div class="form-element">
                     <input type="password" placeholder="Password" name="password" required>
