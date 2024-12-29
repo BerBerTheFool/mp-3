@@ -1,102 +1,74 @@
 <?php
-
 include_once("config.php");
 
-// Check if the form was submitted
+function getZodiacSign($birthdate) {
+    $zodiac = [
+        ['start' => '01-20', 'end' => '02-18', 'sign' => 'Aquarius'],
+        ['start' => '02-19', 'end' => '03-20', 'sign' => 'Pisces'],
+        ['start' => '03-21', 'end' => '04-19', 'sign' => 'Aries'],
+        ['start' => '04-20', 'end' => '05-20', 'sign' => 'Taurus'],
+        ['start' => '05-21', 'end' => '06-20', 'sign' => 'Gemini'],
+        ['start' => '06-21', 'end' => '07-22', 'sign' => 'Cancer'],
+        ['start' => '07-23', 'end' => '08-22', 'sign' => 'Leo'],
+        ['start' => '08-23', 'end' => '09-22', 'sign' => 'Virgo'],
+        ['start' => '09-23', 'end' => '10-22', 'sign' => 'Libra'],
+        ['start' => '10-23', 'end' => '11-21', 'sign' => 'Scorpio'],
+        ['start' => '11-22', 'end' => '12-21', 'sign' => 'Sagittarius'],
+        ['start' => '12-22', 'end' => '01-19', 'sign' => 'Capricorn']
+    ];
+
+    $date = date('m-d', strtotime($birthdate));
+
+    foreach ($zodiac as $z) {
+        if (($date >= $z['start'] && $date <= '12-31') || ($date >= '01-01' && $date <= $z['end'])) {
+            return $z['sign'];
+        }
+    }
+    return 'Unknown';
+}
+
 if (isset($_POST["submit"])) {
-    // Retrieve the form data
     $username = $_POST["username"];
-    $is_admin = 1;
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
-    $username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
     $birthday = $_POST["birthday"];
     $gender = $_POST["gender"];
 
+    // Determine the zodiac sign
+    $zodiac_sign = getZodiacSign($birthday);
+
     // Insert the user into the database
-    $sql = "INSERT INTO users (username, is_admin, first_name, last_name, password, email, birthday, gender) VALUES ('$username', '$is_admin','$firstname','$lastname','$password', '$email', '$birthday', '$gender')";
+    $sql = "INSERT INTO users (username, first_name, last_name, password, email, birthday, gender, zodiac_sign) VALUES ('$username', '$firstname', '$lastname', '$password', '$email', '$birthday', '$gender', '$zodiac_sign')";
     if (mysqli_query($conn, $sql)) {
-
-   echo "<b>Registration successful!<b>";
-   header('Refresh: 1; URL = login.php');
-
+        echo "<b>Admin registration successful!</b>";
+        header('Refresh: 1; URL = adminhome.php');
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
-
-// Close the database connection
-mysqli_close($conn);
 ?>
-
-<!doctype html>
-<html lang="en">  
-<head>  
-    <meta charset="utf-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
-    <title>Administrator Registration Form</title>  
-    <link rel="stylesheet" href="./stylecss.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Registration</title>
 </head>
-<body>    
-    <section>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <div class="registration">
-            <form method="post" action="">
-                <h1>User Registration Form</h1>
-
-                <?php if(isset($error_message)): ?>
-                    <div class="error"><?php echo $error_message; ?></div>
-                <?php endif; ?>
-
-                <div class="form-element">
-                    <input type="text" placeholder="Username" name="username" required>
-                </div>
-
-                <div class="form-element">
-                    <input type="text" placeholder="First Name"name="firstname" required>
-                </div>
-
-                <div class="form-element">
-                    <input type="text" placeholder="Last Name"name="lastname" required>
-                </div>
-
-                <div class="form-element">
-                    <label>Gender:</label>
-                    <input type="radio" id="F" name="gender" value="Female"> Female
-                    <input type="radio" id="M" name="gender" value="Male"> Male
-                </div>
-
-                <div class="form-element">
-                    <input type="date" id="birthday" name="birthday"> 
-                </div>
-                
-
-                <div class="form-element">
-                    <input type="password" placeholder="Password" name="password" required>
-                </div>
-
-                <div class="form-element">
-                    <input type="email" placeholder="Email Address" name="email" required>
-                </div>
-
-                <div class="links">
-                        <a href="login.php">Already have an account?</a>
-                    </div>
-
-                <div class="form-element">
-                    <input type="submit" name="submit" value="Submit">
-                </div>
-            </form>
-        </div>
-    </section>
+<body>
+    <form action="registeradmin.php" method="post">
+        <label>Username:</label><input type="text" name="username" required><br>
+        <label>First Name:</label><input type="text" name="firstname" required><br>
+        <label>Last Name:</label><input type="text" name="lastname" required><br>
+        <label>Password:</label><input type="password" name="password" required><br>
+        <label>Email:</label><input type="email" name="email" required><br>
+        <label>Birthday:</label><input type="date" name="birthday" required><br>
+        <label>Gender:</label>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br>
+        <button type="submit" name="submit">Register</button>
+    </form>
 </body>
 </html>
