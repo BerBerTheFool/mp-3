@@ -20,7 +20,7 @@ CREATE TABLE `users` (
   `gender` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `username` varchar(150) NOT NULL,
-  `birthday` varchar(100) NOT NULL,  
+  `birthday` date NOT NULL,  
   `password` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
