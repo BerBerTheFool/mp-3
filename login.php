@@ -30,11 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = mysqli_fetch_assoc($result);
         if ($row["is_admin"] == 1) {
             $_SESSION['username'] = $username;
-            header('Location: testadmin.php');
+            header('Location: home_admin.php');
             exit();
         } else {
             $_SESSION['username'] = $username;
-            header('Location: testuser.php');
+            header('Location: home_user.php');
             exit();
         }
     } else {
