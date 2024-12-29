@@ -54,7 +54,6 @@ section span:nth-child(2) {
     animation: celestialOrb2 20s linear infinite;
 }
 
-/* New orbs */
 section span:nth-child(3) {
     width: 25px;
     height: 25px;
@@ -111,7 +110,6 @@ section span:nth-child(7) {
     100% { transform: translateX(-100vw) translateY(50vh) rotate(-360deg); }
 }
 
-/* New animations */
 @keyframes celestialOrb3 {
     0% { transform: translateX(-50vw) translateY(-100vh) rotate(0deg) scale(0.8); }
     100% { transform: translateX(50vw) translateY(100vh) rotate(720deg) scale(1.2); }
@@ -154,12 +152,23 @@ section span:nth-child(7) {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
+.registration {
+    position: relative;
+    width: 380px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
 .content {
     position: relative;
     width: 100%;
 }
 
-h2 {
+h1,h2 {
     color: #fff;
     font-size: 30px;
     font-weight: 600;
@@ -206,6 +215,47 @@ h2 {
 .inputBox input[type="submit"]:hover {
     background: linear-gradient(45deg, #8a2be2, #4f1b93);
 }
+
+
+.form-element {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.form-element input {
+    position: relative;
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-element input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
+.form-element input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-element input[type="submit"] {
+    background: linear-gradient(45deg, #4f1b93, #8a2be2);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.form-element input[type="submit"]:hover {
+    background: linear-gradient(45deg, #8a2be2, #4f1b93);
+}
+
 
 .links {
     display: flex;

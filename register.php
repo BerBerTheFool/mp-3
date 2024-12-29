@@ -36,10 +36,16 @@ mysqli_close($conn);
     <meta charset="utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
     <title>User Registration Form</title>  
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./stylecss.css">
 </head>
 <body>    
     <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         <span></span>
         <span></span>
         <div class="registration">
@@ -51,18 +57,15 @@ mysqli_close($conn);
                 <?php endif; ?>
 
                 <div class="form-element">
-                    <label>Username:</label>
-                    <input type="text" name="username" required>
+                    <input type="text" placeholder="Username" name="username" required>
                 </div>
 
                 <div class="form-element">
-                    <label>Firstname:</label>
-                    <input type="text" name="firstname" required>
+                    <input type="text" placeholder="First Name"name="firstname" required>
                 </div>
 
                 <div class="form-element">
-                    <label>Lastname:</label>
-                    <input type="text" name="lastname" required>
+                    <input type="text" placeholder="Last Name"name="lastname" required>
                 </div>
 
                 <div class="form-element">
@@ -72,20 +75,21 @@ mysqli_close($conn);
                 </div>
 
                 <div class="form-element">
-                    <label>Birthday:</label>
                     <input type="date" id="birthday" name="birthday"> 
                 </div>
                 
 
                 <div class="form-element">
-                    <label>Password:</label>
-                    <input type="password" name="password" required>
+                    <input type="password" placeholder="Password" name="password" required>
                 </div>
 
                 <div class="form-element">
-                    <label>Email:</label>
-                    <input type="email" name="email" required>
+                    <input type="email" placeholder="Email Address" name="email" required>
                 </div>
+
+                <div class="links">
+                        <a href="login.php">Already have an account?</a>
+                    </div>
 
                 <div class="form-element">
                     <input type="submit" name="submit" value="Submit">
