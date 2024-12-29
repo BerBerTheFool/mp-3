@@ -49,11 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href=".\atobe\OneDrive\Desktop\ITS122L\htdocs\horoscope"> 
+    <link rel="stylesheet" href=".\stylecss.css"> 
     <title>Login Form</title>
 </head>
 <body>
     <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
         <span></span>
         <span></span>
         <div class="signin">
