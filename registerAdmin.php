@@ -1,31 +1,6 @@
 <?php
 include_once("config.php");
-
-function getZodiacSign($birthdate) {
-    $zodiac = [
-        ['start' => '01-20', 'end' => '02-18', 'sign' => 'Aquarius'],
-        ['start' => '02-19', 'end' => '03-20', 'sign' => 'Pisces'],
-        ['start' => '03-21', 'end' => '04-19', 'sign' => 'Aries'],
-        ['start' => '04-20', 'end' => '05-20', 'sign' => 'Taurus'],
-        ['start' => '05-21', 'end' => '06-20', 'sign' => 'Gemini'],
-        ['start' => '06-21', 'end' => '07-22', 'sign' => 'Cancer'],
-        ['start' => '07-23', 'end' => '08-22', 'sign' => 'Leo'],
-        ['start' => '08-23', 'end' => '09-22', 'sign' => 'Virgo'],
-        ['start' => '09-23', 'end' => '10-22', 'sign' => 'Libra'],
-        ['start' => '10-23', 'end' => '11-21', 'sign' => 'Scorpio'],
-        ['start' => '11-22', 'end' => '12-21', 'sign' => 'Sagittarius'],
-        ['start' => '12-22', 'end' => '01-19', 'sign' => 'Capricorn']
-    ];
-
-    $date = date('m-d', strtotime($birthdate));
-
-    foreach ($zodiac as $z) {
-        if (($date >= $z['start'] && $date <= '12-31') || ($date >= '01-01' && $date <= $z['end'])) {
-            return $z['sign'];
-        }
-    }
-    return 'Unknown';
-}
+include_once("getZodiacSign.php"); // Include the zodiac sign function
 
 if (isset($_POST["submit"])) {
     $username = $_POST["username"];
@@ -36,19 +11,25 @@ if (isset($_POST["submit"])) {
     $birthday = $_POST["birthday"];
     $gender = $_POST["gender"];
 
-    // Determine the zodiac sign
+    // Determine the zodiac sign using the function from getzodiacsign.php
     $zodiac_sign = getZodiacSign($birthday);
 
-    // Insert the user into the database
-    $sql = "INSERT INTO users (username, first_name, last_name, password, email, birthday, gender, zodiac_sign) VALUES ('$username', '$firstname', '$lastname', '$password', '$email', '$birthday', '$gender', '$zodiac_sign')";
+    // Set the is_admin field to 1 (for admin registration)
+    $is_admin = 1;
+
+    // Insert the user into the database, including is_admin
+    $sql = "INSERT INTO users (username, first_name, last_name, password, email, birthday, gender, zodiac_sign, is_admin) 
+            VALUES ('$username', '$firstname', '$lastname', '$password', '$email', '$birthday', '$gender', '$zodiac_sign', '$is_admin')";
+
     if (mysqli_query($conn, $sql)) {
         echo "<b>Admin registration successful!</b>";
-        header('Refresh: 1; URL = adminhome.php');
+        header('Refresh: 1; URL = login.php');
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         } else {
             $_SESSION['username'] = $username;
-            header('Location: testuser.php');
+            header('Location: home_user.php');
             exit();
         }
     } else {
