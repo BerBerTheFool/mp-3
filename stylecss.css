@@ -5,6 +5,7 @@
 }
 
 body {
+    font-family: 'arcane_nineregular';
     display: flex;
     justify-content: center;
     align-items: center;
@@ -184,7 +185,7 @@ section span:nth-child(7) {
 .userpage h3 {
     color: #fff;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 60;
     letter-spacing: 2px;
     margin-top: 17px;
     margin-bottom: 12px;
@@ -194,7 +195,7 @@ section span:nth-child(7) {
 .userpage p {
     color: #fff;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 60;
     letter-spacing: 2px;
     margin-top: 17px;
     margin-bottom: 12px;
@@ -221,7 +222,7 @@ h1 {
     
     color: #fff;
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 60;
     letter-spacing: 2px;
     margin-bottom: 30px;
     text-align: center;
@@ -231,7 +232,7 @@ h2 {
     
     color: #fff;
     font-size: 30px;
-    font-weight: 600;
+    font-weight: 60;
     letter-spacing: 2px;
     margin-bottom: 30px;
     text-align: center;
@@ -269,7 +270,7 @@ h2 {
 .inputBox input[type="submit"] {
     background: linear-gradient(45deg, #4f1b93, #8a2be2);
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 60;
 }
 
 .inputBox input[type="submit"]:hover {
@@ -290,7 +291,7 @@ h2 {
 .form-element label {
     display: block;
     margin-bottom: 8px;
-    font-weight: 600;
+    font-weight: 60;
     color: #333;
     color: rgba(255, 255, 255, 0.5);
 }
@@ -313,7 +314,7 @@ h2 {
 .radio h3 {
     color: #fff;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 60;
     letter-spacing: 2px;
     margin-top: 17px;
     margin-bottom: 12px;
@@ -325,9 +326,9 @@ h2 {
     border-color: rgb(195, 91, 236);
 }
 
-.radio input[type="radio"]:checked + label {
-    background-color:rgb(243, 159, 225);
-    border-color: rgb(195, 91, 236);
+.radio input[type="radio"]:hover + label {
+    background-color:rgb(248, 211, 240);
+    border-color: rgb(213, 160, 235);
 }
 
 .form-element input {
@@ -356,7 +357,7 @@ h2 {
 .form-element input[type="submit"] {
     background: linear-gradient(45deg, #4f1b93, #8a2be2);
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 60;
 }
 
 .form-element input[type="submit"]:hover {
@@ -449,7 +450,7 @@ h2 {
 }
 
 body.home_admin {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'arcane_nineregular';
     line-height: 1.6;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     color: #e6e6e6;
@@ -460,11 +461,15 @@ body.home_admin {
 .home_container {
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+
+    
 }
 
 /* Headers */
@@ -504,6 +509,7 @@ h3 {
     font-weight: 500;
     min-width: 200px;
     text-align: center;
+    
 }
 
 .tab-button:hover {
@@ -526,6 +532,7 @@ label {
 input[type="text"],
 input[type="email"],
 input[type="date"],
+input[type="password"],
 input[type="file"],
 select,
 textarea {
@@ -544,21 +551,30 @@ textarea {
 }
 
 button {
-    background: #4a90e2;
-    color: #fff;
     padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 8px;
+    color: #fff;
     cursor: pointer;
+    transition: all 0.3s ease;
     font-size: 1rem;
     font-weight: 500;
-    transition: all 0.3s ease;
+    min-width: 200px;
+    text-align: center;
 }
 
 button:hover {
-    background: #357abd;
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
 }
+
+.home_admin button[type="submit"] {
+    background: linear-gradient(45deg, #4f1b93, #8a2be2);
+    cursor: pointer;
+    font-weight: 60;
+}
+
 
 /* Tables */
 table {
@@ -578,7 +594,7 @@ th, td {
 
 th {
     background: rgba(255, 255, 255, 0.1);
-    font-weight: 600;
+    font-weight: 60;
 }
 
 tr:hover {
@@ -713,11 +729,12 @@ section span:nth-child(8) { left: 60%; width: 55px; height: 55px; animation-dela
 }
 
 .logout_container h1 {
+    font-family: 'arcane_nineregular';
     color: #fff;
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     text-shadow: 0 2px 15px rgba(74, 144, 226, 0.5);
-    font-weight: 600;
+    font-weight: 60;
     letter-spacing: 1px;
     position: relative;
     animation: fadeInDown 0.5s ease-out 0.2s both;
@@ -836,4 +853,3 @@ section span:nth-child(8) { left: 60%; width: 55px; height: 55px; animation-dela
         font-size: 1.1rem;
     }
 }
-

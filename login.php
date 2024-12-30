@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="text" name="username" placeholder="Email" required>
                     </div>
                     <div class="inputBox">
-                        <input type="password" name="password"  placeholder=" Password" required>
+                        <input type="password" name="password"  placeholder="Password" required>
                     </div>
                     <div class="links">
                         <a href="register.php">Signup User</a>
