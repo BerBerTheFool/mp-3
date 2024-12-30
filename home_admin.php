@@ -66,42 +66,7 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .tabs {
-            margin-bottom: 20px;
-        }
-        .tab-button {
-            padding: 10px 20px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        .edit-form {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-        }
-    </style>
+    <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>
     <div class="container">

@@ -33,7 +33,7 @@ if (isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Registration</title>
+    <title>Admin Registration</title>
     <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>    

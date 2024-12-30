@@ -21,9 +21,10 @@ CREATE TABLE `users` (
   `gender` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `username` varchar(150) NOT NULL,
-  `birthday` date NOT NULL,  
-  `password` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `birthday` date NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `zodiac_sign` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Example entries for Zodiac Signs
 INSERT INTO `zodiac` (`sign_name`, `description`, `image_url`, `start_date`, `end_date`) VALUES
@@ -41,6 +42,14 @@ INSERT INTO `zodiac` (`sign_name`, `description`, `image_url`, `start_date`, `en
 ('Pisces', 'Pisces is empathetic, artistic, and often deeply connected to their emotions.', 'https://i.pinimg.com/736x/18/1b/aa/181baaa58a98adffd78fef95f4f122a6.jpg', '2024-02-19', '2024-03-20');
 
 -- Example entries for Users
+INSERT INTO `users` (`id`, `is_admin`, `first_name`, `last_name`, `gender`, `email`, `username`, `birthday`, `password`, `zodiac_sign`) VALUES
+(31, 0, '123', '123', 'Male', '123@mailo.com', '123', '2024-06-20', '123', 'Aquarius'),
+(35, 1, '111', '111', 'Female', '111@mail.com', 'capulenico@gmail.com', '2015-06-10', '111', 'Aquarius'),
+(36, 0, 'Nicollo Andrew', 'Capule', 'Male', 'capulenico@gmail.com', 'Zilosaurus', '2017-06-14', '111', 'Gemini'),
+(37, 0, 'Nicollo Andrew', 'Capule', 'Male', 'capulenico@gmail.com', 'Zilosaurus', '2024-12-16', '111', 'Sagittarius'),
+(38, 1, 'Nicollo Andrew', 'Capule', 'Male', 'capulenico@gmail.com', 'Zilosaurus', '2025-01-01', '1122333', 'Capricorn');
+
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 

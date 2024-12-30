@@ -57,26 +57,32 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>
-    <div class="container">
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    <div class="userpage">
         <h2>User Dashboard</h2>
         <p>Welcome, <?php echo htmlspecialchars($user['first_name']); ?>!</p>
 
         <h3>Your Daily Horoscope</h3>
         <p>Zodiac Sign: <?php echo htmlspecialchars($zodiac_sign); ?></p>
         <p>Description: <?php echo htmlspecialchars($zodiac_details['description']); ?></p>
-        <img src="<?php echo htmlspecialchars($zodiac_details['image_url']); ?>" alt="<?php echo htmlspecialchars($zodiac_sign); ?>">
-
-        <p>Instructions:</p>
-        <ol>
-            <li>See your daily horoscope based on your birthdate.</li>
-            <li>Your Zodiac description and image are displayed here.</li>
-            <li>Check back tomorrow for an updated daily horoscope!</li>
-        </ol>
-
-        <a href="logout.php">Logout</a>
+        <div class="img">
+            <img src="<?php echo htmlspecialchars($zodiac_details['image_url']); ?>" alt="<?php echo htmlspecialchars($zodiac_sign); ?>">
+        </div>
+        <div class= "links">
+            <a href="logout.php">Logout</a>
+        </div>
     </div>
+    </section>
 </body>
 </html>
