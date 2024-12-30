@@ -28,22 +28,48 @@ if (isset($_POST["submit"])) {
 <html>
 <head>
     <title>User Registration</title>
+    <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>
-    <form action="register.php" method="post">
-        <label>Username:</label><input type="text" name="username" required><br>
-        <label>First Name:</label><input type="text" name="firstname" required><br>
-        <label>Last Name:</label><input type="text" name="lastname" required><br>
-        <label>Password:</label><input type="password" name="password" required><br>
-        <label>Email:</label><input type="email" name="email" required><br>
-        <label>Birthday:</label><input type="date" name="birthday" required><br>
-        <label>Gender:</label>
-        <select name="gender" required>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-        </select><br>
-        <button type="submit" name="submit">Register</button>
-    </form>
+    <section class="registration">
+        <h1>User Registration</h1>
+        <form action="register.php" method="post">
+            <div class="inputBox">
+                <label>Username:</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="inputBox">
+                <label>First Name:</label>
+                <input type="text" name="firstname" required>
+            </div>
+            <div class="inputBox">
+                <label>Last Name:</label>
+                <input type="text" name="lastname" required>
+            </div>
+            <div class="inputBox">
+                <label>Password:</label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="inputBox">
+                <label>Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="inputBox">
+                <label>Birthday:</label>
+                <input type="date" name="birthday" required>
+            </div>
+            <div class="inputBox">
+                <label>Gender:</label>
+                <select name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="inputBox">
+                <button type="submit" name="submit">Register</button>
+            </div>
+        </form>
+    </section>
 </body>
 </html>
