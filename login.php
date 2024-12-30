@@ -45,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Close the database connection
     mysqli_close($conn);
 }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -53,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href=".\stylecss.css"> 
     <title>Login Form</title>
 </head>
-<body>
+<body class="login_body">
     <section>
         <span></span>
         <span></span>
@@ -74,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="text" name="username" placeholder="Email" required>
                     </div>
                     <div class="inputBox">
-                        <input type="password" name="password"  placeholder=" Password" required>
+                        <input type="password" name="password"  placeholder="Password" required>
                     </div>
                     <div class="links">
                         <a href="register.php">Signup User</a>
@@ -91,3 +93,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 </body>
 </html>
+

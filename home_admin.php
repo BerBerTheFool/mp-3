@@ -9,9 +9,6 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
     exit;
 }
 
-// Fetch user details based on the 'username'
-$username = $_SESSION['username'];
-
 // Handle Zodiac sign form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_zodiac'])) {
     $sign_name = trim($_POST['sign_name']);
@@ -32,43 +29,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_zodiac'])) {
     } else {
         $message = "Error uploading image.";
     }
-}
-
-
-// Connect to the database
-$host = 'localhost';
-$db_username = 'root';
-$db_password = '';
-$database = 'zodiac';
-$conn = mysqli_connect($host, $db_username, $db_password, $database);
-
-// Check for errors
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-    exit();
-}
-
-// Prevent SQL injection by using prepared statements
-$query = "SELECT * FROM users WHERE email = ?";
-$stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, "s", $username);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-
-// Check if the user exists and fetch their data
-if (mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    $zodiac_sign = getZodiacSign($user['birthday']); // Assuming you have the 'getZodiacSign' function
-    // Fetch Zodiac details
-    $query = "SELECT * FROM zodiac WHERE sign_name = ?";
-    $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "s", $zodiac_sign);
-    mysqli_stmt_execute($stmt);
-    $zodiac_result = mysqli_stmt_get_result($stmt);
-    $zodiac_details = mysqli_fetch_assoc($zodiac_result);
-} else {
-    echo "User not found.";
-    exit();
 }
 
 // Handle user update
@@ -92,8 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user'])) {
     } else {
         $message = "Error updating user.";
     }
-
-    
 }
 
 // Fetch all users
@@ -130,21 +88,12 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <div class="message"><?php echo $message; ?></div>
         <?php endif; ?>
 
+        
+
         <div class="tabs">
-            
+            <button class="tab-button" onclick="showTab('zodiac')">User Homepage</button>
             <button class="tab-button" onclick="showTab('zodiac')">Manage Zodiac Signs</button>
             <button class="tab-button" onclick="showTab('users')">Manage Users</button>
-            <button class="tab-button" onclick="showTab('home')">User Homepage</button>
-        </div>
-            
-        <div id= "home" class="tab-content">
-        <p>Welcome, <?php echo htmlspecialchars($user['first_name']); ?>!</p>
-
-        <h3>Your Daily Horoscope</h3>
-        <p>Zodiac Sign: <?php echo htmlspecialchars($zodiac_sign); ?></p>
-        <p>Description: <?php echo htmlspecialchars($zodiac_details['description']); ?></p>
-        <div class="img">
-            <img src="<?php echo htmlspecialchars($zodiac_details['image_url']); ?>" alt="<?php echo htmlspecialchars($zodiac_sign); ?>">
         </div>
 
         <div id="zodiac" class="tab-content">
