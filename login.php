@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $host = 'localhost';
     $db_username = 'root';
     $db_password = '';
-    $database = 'test';
+    $database = 'zodiac';
     
     // Connect to the database
     $conn = mysqli_connect($host, $db_username, $db_password, $database);
@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = mysqli_fetch_assoc($result);
         if ($row["is_admin"] == 1) {
             $_SESSION['username'] = $username;
+            $_SESSION['is_admin'] = 1;  // Add this line
             header('Location: home_admin.php');
             exit();
         } else {
@@ -62,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <span></span>
         <span></span>
         <span></span>
-        <div class="signin">
+        <div class="container">
             <div class="content">
                 <h2>Sign In</h2>
                 <?php if(isset($login_error)): ?>

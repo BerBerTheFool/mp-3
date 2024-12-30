@@ -8,7 +8,6 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
     exit;
 }
 
-$message = "";
 
 // Handle form submission for Zodiac sign entries
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>
     <div class="container">

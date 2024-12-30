@@ -18,16 +18,21 @@ function getZodiacSign($birthday) {
 
     // Format the birthdate to mm-dd format
     $date = date('m-d', strtotime($birthday));
-
-    // Iterate through zodiac signs and check date ranges
+    
     foreach ($zodiac as $z) {
-        // Handle zodiac signs that span across year boundaries (e.g., Capricorn)
-        if (($date >= $z['start'] && $date <= '12-31') || ($date >= '01-01' && $date <= $z['end'])) {
-            return $z['sign'];
+        if ($z['sign'] === 'Capricorn') {
+            // Special handling for Capricorn (spans year end)
+            if ($date >= '12-22' || $date <= '01-19') {
+                return 'Capricorn';
+            }
+        } else {
+            // For all other signs, just check if date falls within range
+            if ($date >= $z['start'] && $date <= $z['end']) {
+                return $z['sign'];
+            }
         }
     }
-
-    // Default return value if no sign is found (should never happen with correct logic)
+    
     return 'Unknown';
 }
 ?>

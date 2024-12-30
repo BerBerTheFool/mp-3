@@ -12,10 +12,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logout</title>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>
-    <div class="container">
+    <div class="logout_container">
         <h1>You logged out</h1>
         <p>Redirecting to the login page...</p>
         <div class="loader"></div>

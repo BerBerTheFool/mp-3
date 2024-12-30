@@ -1,43 +1,40 @@
 <?php
-
 include_once("config.php");
+include_once("getZodiacSign.php"); // Include the zodiac sign function
 
-// Check if the form was submitted
 if (isset($_POST["submit"])) {
-    // Retrieve the form data
     $username = $_POST["username"];
-    $is_admin = 1;
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
-    $username = $_POST["username"];
     $password = $_POST["password"];
     $email = $_POST["email"];
     $birthday = $_POST["birthday"];
     $gender = $_POST["gender"];
 
-    // Insert the user into the database
-    $sql = "INSERT INTO users (username, is_admin, first_name, last_name, password, email, birthday, gender) VALUES ('$username', '$is_admin','$firstname','$lastname','$password', '$email', '$birthday', '$gender')";
-    if (mysqli_query($conn, $sql)) {
+    // Determine the zodiac sign using the function from getzodiacsign.php
+    $zodiac_sign = getZodiacSign($birthday);
 
-   echo "<b>Registration successful!<b>";
-   header('Refresh: 1; URL = login.php');
+    // Set the is_admin field to 1 (for admin registration)
+    $is_admin = 1;
 
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
+    // Insert the user into the database, including is_admin
+    $sql = "INSERT INTO users (username, first_name, last_name, password, email, birthday, gender, zodiac_sign, is_admin) 
+            VALUES ('$username', '$firstname', '$lastname', '$password', '$email', '$birthday', '$gender', '$zodiac_sign', '$is_admin')";
+
+        if (mysqli_query($conn, $sql)) {
+            $success_message = "Admin registration successful!";
+            header('Refresh: 2; URL = login.php');
+        } else {
+            $error_message = "Error: " . mysqli_error($conn);
+        }
 }
-
-// Close the database connection
-mysqli_close($conn);
 ?>
 
-<!doctype html>
-<html lang="en">  
-<head>  
-    <meta charset="utf-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
-    <title>Administrator Registration Form</title>  
-    <link rel="stylesheet" href="./stylecss.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>    
     <section>
@@ -51,7 +48,14 @@ mysqli_close($conn);
         <span></span>
         <div class="registration">
             <form method="post" action="">
-                <h1>Administrator Registration Form</h1>
+                <h1>Admin Registration Form</h1>
+
+                <?php if(isset($success_message)): ?>
+                    <div class="success-message"><?php echo $success_message; ?></div>
+                <?php endif; ?>
+                <?php if(isset($error_message)): ?>
+                    <div class="error-message"><?php echo $error_message; ?></div>
+                <?php endif; ?>
 
                 <?php if(isset($error_message)): ?>
                     <div class="error"><?php echo $error_message; ?></div>
