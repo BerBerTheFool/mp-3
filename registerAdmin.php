@@ -35,21 +35,71 @@ if (isset($_POST["submit"])) {
 <head>
     <title>Admin Registration</title>
 </head>
-<body>
-    <form action="registeradmin.php" method="post">
-        <label>Username:</label><input type="text" name="username" required><br>
-        <label>First Name:</label><input type="text" name="firstname" required><br>
-        <label>Last Name:</label><input type="text" name="lastname" required><br>
-        <label>Password:</label><input type="password" name="password" required><br>
-        <label>Email:</label><input type="email" name="email" required><br>
-        <label>Birthday:</label><input type="date" name="birthday" required><br>
-        <label>Gender:</label>
-        <select name="gender" required>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-        </select><br>
-        <button type="submit" name="submit">Register</button>
-    </form>
+<body>    
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="registration">
+            <form method="post" action="">
+                <h1>Administrator Registration Form</h1>
+
+                <?php if(isset($error_message)): ?>
+                    <div class="error"><?php echo $error_message; ?></div>
+                <?php endif; ?>
+
+                <div class="form-element">
+                    <input type="text" placeholder="Username" name="username" required>
+                </div>
+
+                <div class="form-element">
+                    <input type="text" placeholder="First Name"name="firstname" required>
+                </div>
+
+                <div class="form-element">
+                    <input type="text" placeholder="Last Name"name="lastname" required>
+                </div>
+                    
+
+                <div class="radio">
+                <h3> Gender </h3> 
+
+                <input type="radio" id="fem" name="gender" value="Female" checked>
+                    <label for="fem">Female</label>
+
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="undisclosed" name="gender" value="Undisclosed">
+                    <label for="undisclosed">Undisclosed</label> 
+                </div>
+
+                <div class="form-element">
+                    <input type="date" id="birthday" name="birthday"> 
+                </div>
+
+                <div class="form-element">
+                    <input type="password" placeholder="Password" name="password" required>
+                </div>
+
+                <div class="form-element">
+                    <input type="email" placeholder="Email Address" name="email" required>
+                </div>
+
+                <div class="links">
+                        <a href="login.php">Already have an account?</a>
+                    </div>
+
+                <div class="form-element">
+                    <input type="submit" name="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
