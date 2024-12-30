@@ -8,7 +8,6 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
     exit;
 }
 
-$message = "";
 
 // Handle form submission for Zodiac sign entries
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

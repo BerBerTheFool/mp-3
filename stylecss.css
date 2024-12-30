@@ -335,3 +335,23 @@ h1,h2 {
     text-align: center;
     backdrop-filter: blur(5px);
 }
+
+.success-message {
+    background-color: rgba(76, 175, 80, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}

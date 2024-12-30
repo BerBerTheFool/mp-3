@@ -17,10 +17,10 @@ if (isset($_POST["submit"])) {
     // Insert the user into the database
     $sql = "INSERT INTO users (username, first_name, last_name, password, email, birthday, gender, zodiac_sign) VALUES ('$username', '$firstname', '$lastname', '$password', '$email', '$birthday', '$gender', '$zodiac_sign')";
     if (mysqli_query($conn, $sql)) {
-        echo "<b>Registration successful!</b>";
-        header('Refresh: 1; URL = login.php');
+        $success_message = "Registration successful!";
+        header('Refresh: 2; URL = login.php');
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        $error_message = "Error: " . mysqli_error($conn);
     }
 }
 ?>
@@ -43,6 +43,13 @@ if (isset($_POST["submit"])) {
         <div class="registration">
             <form method="post" action="">
                 <h1>User Registration Form</h1>
+
+                <?php if(isset($success_message)): ?>
+                    <div class="success-message"><?php echo $success_message; ?></div>
+                <?php endif; ?>
+                <?php if(isset($error_message)): ?>
+                    <div class="error-message"><?php echo $error_message; ?></div>
+                <?php endif; ?>
 
                 <?php if(isset($error_message)): ?>
                     <div class="error"><?php echo $error_message; ?></div>
