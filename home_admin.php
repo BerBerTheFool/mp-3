@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("config.php");
+require_once("getZodiacSign.php"); // Include the Zodiac sign function
 
 // Check if the user is logged in and is an admin
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
@@ -39,9 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_user'])) {
     $birthday = $_POST['birthday'];
     $gender = $_POST['gender'];
 
-    $query = "UPDATE users SET first_name=?, last_name=?, email=?, birthday=?, gender=? WHERE id=?";
+    // Determine zodiac sign based on the updated birthday
+    $zodiac_sign = getZodiacSign($birthday); // Get the zodiac sign
+
+    $query = "UPDATE users SET first_name=?, last_name=?, email=?, birthday=?, gender=?, zodiac_sign=? WHERE id=?";
     $stmt = mysqli_prepare($conn, $query);
-    mysqli_stmt_bind_param($stmt, "sssssi", $firstname, $lastname, $email, $birthday, $gender, $user_id);
+    mysqli_stmt_bind_param($stmt, "ssssssi", $firstname, $lastname, $email, $birthday, $gender, $zodiac_sign, $user_id);
     
     if (mysqli_stmt_execute($stmt)) {
         $message = "User updated successfully!";
