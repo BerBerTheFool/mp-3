@@ -33,7 +33,8 @@ if (isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Registration</title>
+    <title>User Registration</title>
+    <link rel="stylesheet" href="stylecss.css">
 </head>
 <body>    
     <section>
@@ -47,7 +48,7 @@ if (isset($_POST["submit"])) {
         <span></span>
         <div class="registration">
             <form method="post" action="">
-                <h1>Administrator Registration Form</h1>
+                <h1>Admin Registration Form</h1>
 
                 <?php if(isset($error_message)): ?>
                     <div class="error"><?php echo $error_message; ?></div>
