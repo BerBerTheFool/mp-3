@@ -28,13 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
+        $_SESSION['username'] = $username;  // Set this for all users
+        
         if ($row["is_admin"] == 1) {
-            $_SESSION['username'] = $username;
-            $_SESSION['is_admin'] = 1;  // Add this line
+            $_SESSION['is_admin'] = 1;
             header('Location: home_admin.php');
             exit();
         } else {
-            $_SESSION['username'] = $username;
+            $_SESSION['is_admin'] = 0;  // Add this to explicitly mark non-admin users
             header('Location: home_user.php');
             exit();
         }
