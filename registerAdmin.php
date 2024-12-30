@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {
 
         if (mysqli_query($conn, $sql)) {
             $success_message = "Admin registration successful!";
-            header('Refresh: 2; URL = login.php');
+            header('Refresh: 2; URL = index.php');
         } else {
             $error_message = "Error: " . mysqli_error($conn);
         }
@@ -100,7 +100,7 @@ if (isset($_POST["submit"])) {
                 </div>
 
                 <div class="links">
-                        <a href="login.php">Already have an account?</a>
+                        <a href="index.php">Already have an account?</a>
                     </div>
 
                 <div class="form-element">

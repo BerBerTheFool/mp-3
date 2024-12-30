@@ -18,7 +18,7 @@ if (isset($_POST["submit"])) {
     $sql = "INSERT INTO users (username, first_name, last_name, password, email, birthday, gender, zodiac_sign) VALUES ('$username', '$firstname', '$lastname', '$password', '$email', '$birthday', '$gender', '$zodiac_sign')";
     if (mysqli_query($conn, $sql)) {
         $success_message = "Registration successful!";
-        header('Refresh: 2; URL = login.php');
+        header('Refresh: 2; URL = index.php');
     } else {
         $error_message = "Error: " . mysqli_error($conn);
     }
@@ -94,7 +94,7 @@ if (isset($_POST["submit"])) {
                 </div>
 
                 <div class="links">
-                        <a href="login.php">Already have an account?</a>
+                        <a href="index.php">Already have an account?</a>
                     </div>
 
                 <div class="form-element">

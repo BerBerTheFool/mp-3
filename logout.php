@@ -29,7 +29,7 @@
         </div>
     </section>
     <?php
-        header('Refresh: 3; URL = login.php');
+        header('Refresh: 3; URL = index.php');
     ?>
 </body>
 </html>

@@ -5,7 +5,7 @@ require_once("getZodiacSign.php"); // Include the Zodiac sign function
 
 // Check if the user is logged in and is an admin
 if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
 
