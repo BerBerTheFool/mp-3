@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db_username = 'root';
     $db_password = '';
     $database = 'zodiac';
-    $database = 'zodiac';
     
     // Connect to the database
     $conn = mysqli_connect($host, $db_username, $db_password, $database);
@@ -29,15 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        $_SESSION['username'] = $username;  // Set this for all users
-        
         if ($row["is_admin"] == 1) {
-            $_SESSION['is_admin'] = 1;
+            $_SESSION['username'] = $username;
             $_SESSION['is_admin'] = 1;  // Add this line
             header('Location: home_admin.php');
             exit();
         } else {
-            $_SESSION['is_admin'] = 0;  // Add this to explicitly mark non-admin users
+            $_SESSION['username'] = $username;
             header('Location: home_user.php');
             exit();
         }
@@ -48,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Close the database connection
     mysqli_close($conn);
 }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href=".\stylecss.css"> 
     <title>Login Form</title>
 </head>
-<body>
+<body class="login_body">
     <section>
         <span></span>
         <span></span>
@@ -94,3 +93,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 </body>
 </html>
+

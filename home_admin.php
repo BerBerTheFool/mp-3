@@ -67,9 +67,21 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="stylecss.css">
+    <style>
+        
+    </style>
 </head>
-<body>
-    <div class="container">
+<body class="home_admin">
+    <section>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    <div class="home_container">
         <h2>Admin Dashboard</h2>
         
         <?php if (!empty($message)): ?>
@@ -169,8 +181,9 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </tbody>
             </table>
         </div>
-
-        <a href="logout.php">Logout</a>
+        <div class="links">
+            <a href="logout.php">Logout</a>
+        </div>
     </div>
 
     <script>
@@ -191,5 +204,6 @@ $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
         // Show zodiac tab by default
         showTab('zodiac');
     </script>
+    </section>
 </body>
-</html>
+</html> 

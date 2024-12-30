@@ -22,6 +22,21 @@ body {
     100% { background-position: 0% 50%; }
 }
 
+.login_body section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.login_body section span {
+    position: absolute;
+    pointer-events: none;
+}
+
 section {
     position: relative;
     width: 100%;
@@ -352,6 +367,7 @@ h2 {
 .links {
     display: flex;
     justify-content: space-between;
+    margin-top: 25px;
     margin-bottom: 25px;
 }
 
@@ -396,24 +412,18 @@ h2 {
 }
 
 .img {
+    object-fit: cover;
     margin-top: 10px;
     margin-bottom: 10px;
     position: center;
     display: inline-block;
-    border-radius: 15px;
+    border-radius: 25px;
     overflow: hidden;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-}
-
-.image img{
-    display: block;
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 /* Hover effects */
@@ -425,4 +435,143 @@ h2 {
 .img:hover img {
     transform: scale(1.05);
     filter: brightness(1.1);
+}
+
+/* admin page */
+
+
+
+.home_admin tabs {
+    margin-bottom: 20px;
+}
+
+.home_admin tab-button {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.home_admin tab-content {
+    display: flex;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.home_admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-width: 300px; /* Minimum width for better mobile display */
+    display: block;
+    overflow-x: auto;
+    white-space: wrap;
+}
+
+.home_admin th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.home_admin th {
+    background-color: #f4f4f4;
+}
+
+.home_admin edit-form {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.home_container{
+    position: relative; 
+    width: 650px;
+    padding: 20px;
+    margin: 0 auto; 
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.home_admin h3 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 17px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.home_admin section{
+    position: relative;
+    width: 100%;
+    height: 270vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home_admin button {
+    position: relative;
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    outline: none;
+    transition: 0.3s;
+    margin-bottom: 1px;
+}
+
+.home_admin button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+}
+
+.ihome_admin button::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+    .home_admin .home_container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .home_admin .tabs {
+        flex-direction: column;
+    }
+
+    .home_admin table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+.home_admin label,option {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 17px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.home_admin .form-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 5px;
 }
